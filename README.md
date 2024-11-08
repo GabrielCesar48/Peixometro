@@ -13,7 +13,7 @@
 <ul>
   <li><strong>Frontend</strong>: Bootstrap, Javascript</li>
   <li><strong>Backend</strong>: Python </li>
-  !-- <li><strong>Banco de Dados</strong>: [Informe o tipo, como Firebase, MySQL, etc.]</li> --!
+  <!-- <li><strong>Banco de Dados</strong>: [Informe o tipo, como Firebase, MySQL, etc.]</li> -->
 </ul>
 
 <h2>Como Contribuir</h2>
