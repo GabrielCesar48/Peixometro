@@ -11,9 +11,9 @@
 
 <h2>Tecnologias Utilizadas</h2>
 <ul>
-  <li><strong>Frontend</strong>: [Descreva as tecnologias, como React Native, Flutter, etc.]</li>
-  <li><strong>Backend</strong>: [Especifique a linguagem e framework, como Python, Node.js, etc.]</li>
-  <li><strong>Banco de Dados</strong>: [Informe o tipo, como Firebase, MySQL, etc.]</li>
+  <li><strong>Frontend</strong>: Bootstrap, Javascript</li>
+  <li><strong>Backend</strong>: Python </li>
+  !-- <li><strong>Banco de Dados</strong>: [Informe o tipo, como Firebase, MySQL, etc.]</li> --!
 </ul>
 
 <h2>Como Contribuir</h2>
