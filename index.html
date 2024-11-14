@@ -7,119 +7,87 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
+    <!-- Navbar -->
+    <nav class="navbar bg-primary bg-gradient" data-bs-theme="dark">
+        <div class="container-fluid">
+            <div class="mx-auto text-center">
+                <h1 class="mb-0 text-light roboto-bold" style="font-size: 2rem;" id="peixometro">
+                    PEIXÔMETRO
+                </h1>
+            </div>
+        </div>
+    </nav>
 
-
-    <!--Navbar-->
-  <nav class="navbar bg-primary bg-gradient" data-bs-theme="dark">
-    <div class="container-fluid">
-      <!-- Logo alinhada à esquerda -->
-      <a class="navbar-brand" href="#">
-        <img src="" alt="Logo" width="26"
-          height="30" class="d-inline-block align-text-top">
-      </a>      
-      <!-- Título centralizado com efeito de bolhas -->
-      <div class="mx-auto text-center">
-        <h1 class="mb-0 text-light roboto-bold" style="font-size: 2rem; position: relative;" id="cervejometro">
-          PEIXÔMETRO
-        </h1>
-      </div>
-    </div>
-  </nav>
-
-
-<div class="container mt-5 card border-info">
-    <p class="text-center mb-4"><strong>Peixômetro</strong> é uma calculadora simples e intuitiva desenvolvida para piscicultores que desejam calcular a quantidade ideal de peixes para seus açudes, tanques ou poços. Através de parâmetros como o volume do espaço aquático, espécie dos peixes e condições de água, o app sugere a quantidade recomendada de peixes, garantindo o bem-estar da criação e a sustentabilidade do ambiente.</p>
-</div>
-
-
-    <!-- Formulário de Cálculo -->
-    <div class=" container card p-4 shadow mt-5">
+    <div class="container mt-5 card border-info p-4">
         <form id="calc-form">
+            <!-- Seleção de Tipo de Açude -->
             <div class="mb-3">
-                <label for="especie" class="form-label">Selecione a Espécie de Peixe:</label>
-                <select id="especie" class="form-select">
-                    <option value="" disabled selected>Escolha uma espécie</option>
-                    <option value="15">Bagre Africano</option>
-                    <option value="20">Carpa Cabeçuda</option>
-                    <option value="5">Carpa Húngara</option>
-                    <option value="10">Carpa Capim</option>
-                    <option value="20">Carpa Prateada</option>
-                    <option value="3">Catfish Americano</option>
-                    <option value="10">Cachara</option>
-                    <option value="15">Cachapira</option>
-                    <option value="10">Curimbatá</option>
-                    <option value="10">Dourado</option>
-                    <option value="5">Jundiá Cinza</option>
-                    <option value="40">Lambari</option>
-                    <option value="1">Matrinxã</option>
-                    <option value="2">Pacu</option>
-                    <option value="15">Panga</option>
-                    <option value="2">Patinga</option>
-                    <option value="5">Pintado</option>
-                    <option value="3">Piapara</option>
-                    <option value="3">Piau</option>
-                    <option value="10">Pirarara</option>
-                    <option value="2">Tambacu</option>
-                    <option value="5">Tilápia</option>
-                    <option value="10">Tucunaré</option>
-                    <option value="2">Trairão</option>
-                </select>
+                <label class="form-label">Tipo de Açude:</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="tipoAcude" id="retangular" value="retangular" checked>
+                    <label class="form-check-label" for="retangular">Retangular</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="tipoAcude" id="redondo" value="redondo">
+                    <label class="form-check-label" for="redondo">Redondo</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="tipoAcude" id="tanqueRede" value="tanqueRede">
+                    <label class="form-check-label" for="tanqueRede">Tanque Rede</label>
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="comprimento" class="form-label">Comprimento do Açude (em metros):</label>
-                <input type="number" id="comprimento" class="form-control" min="1" required>
+
+            <div id="dimension-fields">
+                <div class="mb-3" id="input-comprimento">
+                    <label for="comprimento" class="form-label">Comprimento (em metros):</label>
+                    <input type="number" id="comprimento" class="form-control" min="1" required>
+                </div>
+                <div class="mb-3" id="input-largura">
+                    <label for="largura" class="form-label">Largura (em metros):</label>
+                    <input type="number" id="largura" class="form-control" min="1" required>
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="largura" class="form-label">Largura do Açude (em metros):</label>
-                <input type="number" id="largura" class="form-control" min="1" required>
-            </div>
-            <button type="button" class="btn btn-primary w-100" onclick="calcularPeixes()">Calcular</button>
+
+            <button type="button" class="btn btn-primary w-100 mt-3" onclick="calcularArea()">Calcular Área</button>
         </form>
     </div>
 
-    <!-- Resultado -->
-    <div class="mt-4" id="resultado"></div>
-</div>
-
-
-
-
-
-
-<div class="container-fluid" style="min-height: 100vh;"> </div>
-
-
-  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top bg-dark">
-    <div class="col-md-4 d-flex align-items-center">
-      <a class="navbar-brand ms-3" href="#">
-        <img src="" alt="Logo" width="26"
-          height="30" class="d-inline-block align-text-top">
-      </a>
-      <span class="mb-md-0  text-light ms-2">© 2024 Gabriel Pereira</span>
+    <div class="container mt-4" id="especie-section" style="display: none;">
+        <h5>Selecione a Espécie de Peixe:</h5>
+        <select id="especie" class="form-select mb-3">
+            <option value="" disabled selected>Escolha uma espécie</option>
+            <option value="15">Bagre Africano</option>
+            <option value="20">Carpa Cabeçuda</option>
+            <option value="5">Carpa Húngara</option>
+            <option value="10">Carpa Capim</option>
+            <option value="20">Carpa Prateada</option>
+            <option value="3">Catfish Americano</option>
+            <option value="10">Cachara</option>
+            <option value="15">Cachapira</option>
+            <option value="10">Curimbatá</option>
+            <option value="10">Dourado</option>
+            <option value="5">Jundiá Cinza</option>
+            <option value="40">Lambari</option>
+            <option value="1">Matrinxã</option>
+            <option value="2">Pacu</option>
+            <option value="15">Panga</option>
+            <option value="2">Patinga</option>
+            <option value="5">Pintado</option>
+            <option value="3">Piapara</option>
+            <option value="3">Piau</option>
+            <option value="10">Pirarara</option>
+            <option value="2">Tambacu</option>
+            <option value="5">Tilápia</option>
+            <option value="10">Tucunaré</option>
+            <option value="2">Trairão</option>
+            <!-- outras opções... -->
+        </select>
+        <button class="btn btn-success w-100" onclick="adicionarEspecie()">Adicionar Espécie</button>
     </div>
 
-    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex ">
+    <div class="container mt-4" id="resultado-section"></div>
 
-      <li class="m-3 text-light"  >
-        <a class="text-light" href="https://github.com/GabrielCesar48" target="_blank">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
-            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
-          </svg>
-        </a>       
-      </li>      
-
-      <li class="m-3 text-light">
-        <a class="text-light" href="https://www.linkedin.com/in/gabrielcesar48?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
-            <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
-          </svg>
-        </a>
-      </li>
-    </ul>
-
-  </footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-<script src="scripts/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="scripts/script.js"></script>
 </body>
 </html>
